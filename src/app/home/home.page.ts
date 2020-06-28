@@ -35,6 +35,7 @@ export class HomePage {
 
 getTasks() {
   this.afDB.list('Tasks/').snapshotChanges(['child_added', 'child_removed']).subscribe(actions => {
+   this.tasks = [];
     actions.forEach(action => {
       console.log('Tache:' + action.payload.exportVal().test);
       this.tasks.push({
